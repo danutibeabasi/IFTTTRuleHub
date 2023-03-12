@@ -1,0 +1,71 @@
+{
+  "actions": [
+    {
+      "id": 1,
+      "name": "turn on AC"
+    },
+    {
+      "name": "thank you",
+      "id": 2
+    },
+    {
+      "name": "turn off light",
+      "id": 3
+    },
+    {
+      "name": "turn water on",
+      "id": 4
+    },
+    {
+      "name": "Save Data",
+      "id": 5
+    },
+    {
+      "name": "Heater ON",
+      "id": 6
+    },
+    {
+      "name": "Turn off Heater",
+      "id": 7
+    },
+    {
+      "name": "Turn on Heater",
+      "id": 8
+    }
+  ],
+  "rules": [
+    {
+      "condition": "For every",
+      "action": "Save Data",
+      "time": "21:39",
+      "date": "2023-03-12",
+      "value": 10,
+      "units": "minute(s)",
+      "originalValue": 10,
+      "isActive": true,
+      "id": 1
+    },
+    {
+      "condition": "No presence detected for ",
+      "action": "Turn off Heater",
+      "time": "22:44",
+      "date": "2023-03-12",
+      "value": 60,
+      "units": "hour(s)",
+      "originalValue": 1,
+      "isActive": false,
+      "id": 2
+    },
+    {
+      "condition": "Temperature greater than",
+      "action": "Turn off Heater",
+      "time": "21:45",
+      "date": "2023-03-13",
+      "value": 30,
+      "units": "celsius",
+      "originalValue": 30,
+      "isActive": false,
+      "id": 3
+    }
+  ]
+}
