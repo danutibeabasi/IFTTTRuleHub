@@ -2,69 +2,60 @@
   "actions": [
     {
       "id": 1,
-      "name": "turn on AC"
-    },
-    {
-      "name": "thank you",
-      "id": 2
-    },
-    {
-      "name": "turn off light",
-      "id": 3
-    },
-    {
-      "name": "turn water on",
-      "id": 4
-    },
-    {
-      "name": "Save Data",
-      "id": 5
-    },
-    {
-      "name": "Heater ON",
-      "id": 6
-    },
-    {
-      "name": "Turn off Heater",
-      "id": 7
-    },
-    {
-      "name": "Turn on Heater",
-      "id": 8
+      "name": "Turn on AC"
     }
   ],
   "rules": [
     {
-      "condition": "For every",
-      "action": "Save Data",
+      "conditions": [
+        {
+          "id": "1",
+          "name": "Condition 1",
+          "conditionType": "every",
+          "conditionValue": 20,
+          "conditionUnit": "celsius",
+          "originalValue": 20,
+          "value": 20
+        },
+        {
+          "id": "2",
+          "name": "Condition 2",
+          "conditionType": "every",
+          "conditionValue": 30,
+          "conditionUnit": "minutes",
+          "originalValue": 30,
+          "value": 30
+        }
+      ],
+      "action": "Turn on AC",
       "time": "21:39",
       "date": "2023-03-12",
-      "value": 10,
-      "units": "minute(s)",
-      "originalValue": 10,
-      "isActive": true,
+      "isActive": false,
       "id": 1
     },
     {
-      "condition": "No presence detected for ",
-      "action": "Turn off Heater",
-      "time": "22:44",
-      "date": "2023-03-12",
-      "value": 60,
-      "units": "hour(s)",
-      "originalValue": 1,
-      "isActive": false,
-      "id": 2
-    },
-    {
-      "condition": "Temperature greater than",
-      "action": "Turn off Heater",
-      "time": "21:45",
-      "date": "2023-03-13",
-      "value": 30,
-      "units": "celsius",
-      "originalValue": 30,
-      "isActive": false,
+      "conditions": [
+        {
+          "name": "temperature",
+          "conditionType": "every",
+          "conditionValue": 1,
+          "conditionUnit": "hour(s)",
+          "value": 60,
+          "originalValue": 1
+        },
+        {
+          "name": "humidy",
+          "conditionType": "above",
+          "conditionValue": 20,
+          "conditionUnit": "minute(s)",
+          "value": 20,
+          "originalValue": 20
+        }
+      ],
+      "action": "Turn on AC",
+      "time": "17:32",
+      "date": "2023-03-06",
+      "isActive": true,
       "id": 3
     }
   ]

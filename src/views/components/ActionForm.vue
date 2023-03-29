@@ -54,49 +54,50 @@
     }
   </style>
   
-  <script>
-  import SoftButton from "@/components/SoftButton.vue";
-  import axios from "axios";
-  
-  export default {
-    name: "ActionForm",
-    props: {
-      show: {
-        type: Boolean,
-        default: false,
+<script>
+import SoftButton from "@/components/SoftButton.vue";
+import axiosInstance from "@/services/axiosConfig"; // Import your custom-configured Axios instance
+
+export default {
+  name: "ActionForm",
+  props: {
+    show: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  components: {
+    SoftButton,
+  },
+  data() {
+    return {
+      actions: {
+        name: "",
       },
+    };
+  },
+  methods: {
+    close() {
+      this.$emit("action-form", false);
     },
-    components: {
-      SoftButton,
-    },
-    data() {
-      return {
-        actions:{
-          name: "",
-        }
-      };
-    },
-    methods: {
-      close() {
-        this.$emit("action-form", false);
-      },
-      async addNewAction() {
-        if (this.actions.name) {
-          try {
-            const result_3 = await axios.post("http://localhost:3000/actions", {
-              name: this.actions.name,
-            });
+    async addNewAction() {
+      if (this.actions.name) {
+        try {
+          const result_3 = await axiosInstance.post("/actions", {
+            name: this.actions.name,
+          });
 
           if (result_3.status === 201) {
-                this.$emit("action-form", false);
-              }
-            } catch (error) {
-              // Handle errors
-              console.log(error);
+            this.$emit("action-form", false);
           }
+        } catch (error) {
+          // Handle errors
+          console.log(error);
         }
       }
     },
-  };
-  </script>
+  },
+};
+</script>
+
   
